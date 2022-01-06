@@ -1,3 +1,7 @@
+/**
+  * Created by FishingHacks
+  * https://github.com/FishingHacks/LoggingLibrary
+*/
 class ArrayList extends Array {
     constructor() {
         super()
