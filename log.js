@@ -57,39 +57,6 @@ class ArrayList extends Array {
   }
 }
 
-function xinspect(for_console, object, prefix) {
-  if (typeof object == "undefined" || object == null) {
-    return "null";
-  }
-  if (typeof object != "object") return "Invalid object";
-  if (typeof prefix == "undefined") prefix = "";
-
-  if (prefix.length > 50) return "[RECURSION TOO DEEP. ABORTING.]";
-
-  var rows = [];
-  for (var property in object) {
-    var datatype = typeof object[property];
-
-    var tempDescription = prefix + '"' + property + '"';
-    tempDescription += " (" + datatype + ") => ";
-    if (datatype == "object")
-      tempDescription +=
-        "object: " +
-        objectInspector(for_console, object[property], prefix + "  ");
-    else tempDescription += object[property];
-
-    rows.push(tempDescription);
-  }
-
-  let r = rows.join(prefix + "\n");
-  if (!for_console) {
-    while (r.indexOf("\n") > 0) {
-      r = r.replace("\n", "<br>");
-    }
-  }
-  return r;
-}
-
 let logFunctions = {
   date: (gmt = true, time=true, date=true) => {
     if (gmt) return new Date().toUTCString();
@@ -242,7 +209,6 @@ if (!globalThis["window"]) {
     warn,
     forEach,
     addLogFunction,
-    xinspect,
     ArrayList,
     logFunctions
   }
