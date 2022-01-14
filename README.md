@@ -2,12 +2,13 @@
 
 Usage:
 ```js
-log("message", "unsafe message with user input"(, function));
-warn("message", "unsafe message with user input");
-error("message", "unsafe message with user input");
-log(<? extends Message>);
-warn(<? extends Message>);
-error(<? extends Message>);
+const logger = getLogger("<your-prefix>");
+logger.log("message", "unsafe message with user input"(, function));
+logger.warn("message", "unsafe message with user input");
+logger.error("message", "unsafe message with user input");
+logger.log(<? extends Message>);
+logger.warn(<? extends Message>);
+logger.error(<? extends Message>);
 ```
 
 Call a in-log function (impossible in "unsafe message with user input"):
